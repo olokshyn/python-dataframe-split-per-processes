@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.idea/**
+.DS_Store
+
+as_argument.log
+as_global.log
+memory-argument.png
+memory-global.png
+global.png
+args.png
+pubg_events_logplayerattack.csv
