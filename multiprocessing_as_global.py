@@ -20,13 +20,14 @@ def main(proc_num: int, no_limits: bool) -> None:
 
 def worker(chunk_id: int) -> None:
     df = _g_chunks[chunk_id]
-    print(f'Read global chunk with start index {df.index[0]}')
+    print(f'Read global chunk with start index {df.index[0]}', flush=True)
     sleep(10)
-    print('Changed data from worker!')
     # Changing global data doesn't affect the parent process or other processes.
     df[:] = 0
     _g_chunks[chunk_id] = None
+    print('Changed data from worker!', flush=True)
     sleep(10)
+    print('Worker is done!', flush=True)
 
 
 if __name__ == '__main__':

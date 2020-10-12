@@ -16,12 +16,13 @@ def main(proc_num: int, no_limits: bool) -> None:
 
 
 def worker(df: pd.DataFrame) -> None:
-    print(f'Got chunk with start index {df.index[0]}')
+    print(f'Got chunk with start index {df.index[0]}', flush=True)
     sleep(10)
-    print('Changed data from worker!')
     # Changing df doesn't affect the parent thread
     df[:] = 0
+    print('Changed data from worker!', flush=True)
     sleep(10)
+    print('Worker is done!', flush=True)
 
 
 if __name__ == '__main__':
